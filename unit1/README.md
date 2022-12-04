@@ -8,9 +8,9 @@
 
 - 请确保你已经 [注册了该课程](https://huggingface.us17.list-manage.com/subscribe?u=7f57e683fa28b51bfc493d048&id=ef963b4162)。这样当有新课程材料发布的时候你就会收到通知
 - 通读下面的介绍性材料以及任何你感兴趣的其他资源
-- Check out the _**Introduction to Diffusers**_  notebook below to put theory into practice with the 🤗 Diffusers library
-- Train and share your own diffusion model using the notebook or the linked training script
-- (Optional) Dive deeper with the _**Diffusion Models from Scratch**_ notebook if you're interested seeing a minimal from-scratch implementation and exploring the different design decisions involved
+- 查看下面的 _**扩散器简介**_  notebook 来使用diffuers库将理论应用到实践中
+- 使用notebook或链接的训练脚本来训练和分享您自己的扩散模型
+- (可选) 如果您有兴趣看到一个极简的从头开始的项目实现，并探索所涉及的不同设计决策，您可以深入研究 _**从头开始一个扩散模型**_ notebook。
 
 
 :loudspeaker: Don't forget to join the [Discord](https://huggingface.co/join/discord), where you can discuss the material and share what you've made in the `#diffusion-models-class` channel.
