@@ -1,14 +1,13 @@
-# Unit 1: An Introduction to Diffusion Models
+# 单元 1: 扩散模型简介
 
-Welcome to Unit 1 of the Hugging Face Diffusion Models Course! In this unit you will learn the basics of how diffusion 
-models work and how to create your own using the 🤗 Diffusers library.
+欢迎来到Hugging Face扩散模型课程第一单元！在本单元中，您将学习有关扩散模型如何工作的基础知识，以及如何使用🤗 diffusers库。
 
-## Start this Unit :rocket:
+## 开始本单元 :rocket:
 
-Here are the steps for this unit:
+以下是本单元的学习步骤:
 
-- Make sure you've [signed up for this course](https://huggingface.us17.list-manage.com/subscribe?u=7f57e683fa28b51bfc493d048&id=ef963b4162) so that you can be notified when new material is released
-- Read through the introductory material below as well as any of the additional resources that sound interesting
+- 请确保你已经 [注册了该课程](https://huggingface.us17.list-manage.com/subscribe?u=7f57e683fa28b51bfc493d048&id=ef963b4162)。这样当有新课程材料发布的时候你就会收到通知
+- 通读下面的介绍性材料以及任何你感兴趣的其他资源
 - Check out the _**Introduction to Diffusers**_  notebook below to put theory into practice with the 🤗 Diffusers library
 - Train and share your own diffusion model using the notebook or the linked training script
 - (Optional) Dive deeper with the _**Diffusion Models from Scratch**_ notebook if you're interested seeing a minimal from-scratch implementation and exploring the different design decisions involved
@@ -68,4 +67,4 @@ AI Coffee Break video on Diffusion Models: https://www.youtube.com/watch?v=344w5
 
 Yannic Kilcher Video on DDPMs: https://www.youtube.com/watch?v=W-O7AZNzbzQ
 
-Found more great resources? Let us know and we'll add them to this list.
+你找到了更多很棒的资源？请务必让我们知道，我们会将他们添加到此列表中。
