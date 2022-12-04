@@ -28,11 +28,6 @@
 扩散模型成功的秘诀在于扩散过程的迭代本质。最先生成的只是一组随机噪声，但经过若干步骤逐渐改善，有意义的图像将最终会出现。在每一步中，模型都会估计如何从当前的输入生成完全去噪的结果。因为我们在每一步都只做了一个小小的变动，所以在早期阶段（预测最终输出实际上非常困难），这个估计中的任何error都可以在以后的更新中得到纠正。
 
 与其他类型的生成模型相比，训练扩散模型相对较为容易。我们只需要重复以下步骤即可：
-1) Load in some images from the training data
-2) Add noise, in different amounts. Remember, we want the model to do a good job estimating how to 'fix' (denoise) both extremely noisy images and images that are close to perfect.
-3) Feed the noisy versions of the inputs into the model
-4) Evaluate how well the model does at denoising these inputs
-5) Use this information to update the model weights
 
 1) 从训练数据中加载一些图像
 2) 添加不同级别的噪声。请记住，我们希望模型在面对添加了极端噪声和几乎没有添加噪声的带噪图像时，都能够很好地估计如何“修复”（去噪）。
@@ -40,14 +35,13 @@
 4) 评估模型对这些输入进行去噪的效果
 5) 使用此信息更新模型权重
 
-To generate new images with a trained model, we begin with a completely random input and repeatedly feed it through the model, updating it each time by a small amount based on the model prediction. As we'll see, there are a number of sampling methods that try to streamline this process so that we can generate good images with as few steps as possible.
+为了用训练好的模型生成新的图像，我们从完全随机的输入开始，反复将其输入模型，每次根据模型预测进行少量更新。正如我们将学习到的，有许多采样方法试图简化这个过程，以便我们可以用尽可能少的步骤生成好的图像。
+我们将在第一单元的实践笔记本中详细介绍这些步骤。在第二单元中，我们将了解如何修改此过程，来通过额外的条件（例如类标签）或使用指导等技术来增加对模型输出的额外控制。第三单元和第四单元将探索一种非常强大的扩散模型，称为稳定扩散(stable diffusion)，它可以生成给定文本描述的图像。
 
-We will show each of these steps in detail in the hands-on notebooks here in unit 1. In unit 2, we will look at how this process can be modified to add additional control over the model outputs through extra conditioning (such as a class label) or with techniques such as guidance. And units 3 and 4 will explore an extremely powerful diffusion model called Stable Diffusion, which can generate images given text descriptions.  
+## 让我们来实践一下！
 
-## Hands-On Notebooks
+到这里，您已经足够了解如何开始使用附带的笔记本了！这里的两个笔记本以不同的方式表达了相同的想法。
 
-At this point, you know enough to get started with the accompanying notebooks! The two notebooks here come at the same idea in different ways. 
- 
 | Chapter                                     | Colab                                                                                                                                                                                               | Kaggle                                                                                                                                                                                                   | Gradient                                                                                                                                                                               | Studio Lab                                                                                                                                                                                                   |
 |:--------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Introduction to Diffusers                                | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/huggingface/diffusion-models-class/blob/main/unit1/01_introduction_to_diffusers.ipynb)              | [![Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://github.com/huggingface/diffusion-models-class/blob/main/unit1/01_introduction_to_diffusers.ipynb)              | [![Gradient](https://assets.paperspace.io/img/gradient-badge.svg)](https://console.paperspace.com/github/huggingface/diffusion-models-class/blob/main/unit1/01_introduction_to_diffusers.ipynb)              | [![Open In SageMaker Studio Lab](https://studiolab.sagemaker.aws/studiolab.svg)](https://studiolab.sagemaker.aws/import/github/huggingface/diffusion-models-class/blob/main/unit1/01_introduction_to_diffusers.ipynb)              |
@@ -57,11 +51,11 @@ In _**Introduction to Diffusers**_, we show the different steps described above 
 
 In _**Diffusion Models from Scratch**_ we show those same steps (adding noise to data, creating a model, training and sampling) but implemented from scratch in PyTorch as simply as possible. Then we compare this 'toy example' with the diffusers version, noting how the two differ and where improvements have been made. The goal here is to gain familiarity with the different components and the design decisions that go into them, so that when you look at a new implementation you can quickly identify the key ideas.
 
-## Project Time
+## 实践笔记本
 
-Now that you've got the basics down, have a go at training one or more diffusion models! Some suggestions are included at the end of the _**Introduction to Diffusers**_ notebook. Make sure to share your results, training recipes and findings with the community so that we can collectively figure out the best ways to train these models.
+现在，你已经掌握了基本知识，开始训练一个或多个扩散模型吧！ _**Introduction to Diffusers**_ 笔记本的末尾有一些小tips。希望您能与社区分享您的成果、训练脚本和发现，以便我们能够一起找出训练这些模型的最佳方法。
 
-## Some Additional Resources
+## 一些额外的材料
  
 [The Annotated Diffusion Model](https://huggingface.co/blog/annotated-diffusion) is a very in-depth walk-through of the code and theory behind DDPMs with 
  maths and code showing all the different components. It also links to a number of papers for further reading.

@@ -17,7 +17,7 @@
 |---------------|----------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
 | November 28, 2022  | [扩散模型简介](https://github.com/huggingface/diffusion-models-class/tree/main/unit1)| 从头开始介绍扩散器和扩散模型 |
 | 待定  | 微调和指导 | 根据新数据微调扩散模型并添加指导 |
-| 待定  | Stable Diffusion 介绍 | Exploring a Powerful 探索一个强大的以文本为条件的隐式扩散模型(Latent Diffusion Model) |
+| 待定  | Stable Diffusion 介绍 | 探索一个强大的文本条件的隐式扩散模型(Latent Diffusion Model) |
 | 待定  | 深入挖掘 Stable Diffusion| 微调、采样技巧和自定义管道 |
 
 更多的信息即将到来!
@@ -49,4 +49,4 @@
 
 这个课程由 **四个单元**组成。 越来越多的内容也会逐渐添加进来，例如与声音相关的扩散模型. 
 
-每个单元包括一些理论和背景知识以及一个或多个可交互的jupyter notebook(hands-on notebooks)。一些单元还将包含样例项目(suggested projects)，我们也将举办最佳流程和demo的评选比赛（尽请期待更多详细信息）。
+每个单元包括一些理论和背景知识以及一个或多个可以上手实践的jupyter notebook。一些单元还将包含样例项目(suggested projects)，我们也将举办最佳流程和demo的评选比赛（尽请期待更多详细信息）。
