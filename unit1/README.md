@@ -8,7 +8,7 @@
 
 - 请确保你已经[注册了该课程](https://huggingface.us17.list-manage.com/subscribe?u=7f57e683fa28b51bfc493d048&id=ef963b4162)。这样当有新课程材料发布的时候你就会收到通知
 - 通读下面的介绍材料以及任何你感兴趣的其他资源
-- 查看下面的 _**扩散器简介**_ 笔记本，以使用diffuers库将理论应用到实践中
+- 查看下面的 _**Introduction to Diffusers**_ 笔记本，以使用diffuers库将理论应用到实践中
 - 使用notebook或链接的训练脚本来训练和分享您自己的扩散模型
 - (可选) 如果您有兴趣看到一个极简的从头开始的项目实现，并探索所涉及的不同设计决策，您可以深入研究 _**从头开始一个扩散模型**_ notebook。
 
@@ -35,7 +35,7 @@
 4) 评估模型对这些输入进行去噪的效果
 5) 使用此信息更新模型权重
 
-为了用训练好的模型生成新的图像，我们从完全随机的输入开始，反复将其输入模型，每次根据模型预测进行少量更新。正如我们将学习到的，有许多采样方法试图简化这个过程，以便我们可以用尽可能少的步骤生成好的图像。
+为了用训练好的模型生成新的图像，我们从完全随机的输入开始，反复将其输入模型，每次根据模型预测进行少量更新。我们之后会学到有许多采样方法试图简化这个过程，以便我们可以用尽可能少的步骤生成好的图像。
 我们将在第一单元的实践笔记本中详细介绍这些步骤。在第二单元中，我们将了解如何修改此过程，来通过额外的条件（例如类标签）或使用指导等技术来增加对模型输出的额外控制。第三单元和第四单元将探索一种非常强大的扩散模型，称为稳定扩散(stable diffusion)，它可以生成给定文本描述的图像。
 
 ## 让我们来实践一下！
@@ -47,13 +47,13 @@
 | Introduction to Diffusers                                | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/huggingface/diffusion-models-class/blob/main/unit1/01_introduction_to_diffusers.ipynb)              | [![Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://github.com/huggingface/diffusion-models-class/blob/main/unit1/01_introduction_to_diffusers.ipynb)              | [![Gradient](https://assets.paperspace.io/img/gradient-badge.svg)](https://console.paperspace.com/github/huggingface/diffusion-models-class/blob/main/unit1/01_introduction_to_diffusers.ipynb)              | [![Open In SageMaker Studio Lab](https://studiolab.sagemaker.aws/studiolab.svg)](https://studiolab.sagemaker.aws/import/github/huggingface/diffusion-models-class/blob/main/unit1/01_introduction_to_diffusers.ipynb)              |
 | Diffusion Models from Scratch                                | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/huggingface/diffusion-models-class/blob/main/unit1/02_diffusion_models_from_scratch.ipynb)              | [![Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://github.com/huggingface/diffusion-models-class/blob/main/unit1/02_diffusion_models_from_scratch.ipynb)              | [![Gradient](https://assets.paperspace.io/img/gradient-badge.svg)](https://console.paperspace.com/github/huggingface/diffusion-models-class/blob/main/unit1/02_diffusion_models_from_scratch.ipynb)              | [![Open In SageMaker Studio Lab](https://studiolab.sagemaker.aws/studiolab.svg)](https://studiolab.sagemaker.aws/import/github/huggingface/diffusion-models-class/blob/main/unit1/02_diffusion_models_from_scratch.ipynb)              |
 
-In _**Introduction to Diffusers**_, we show the different steps described above using building blocks from the diffusers library. You'll quickly see how to create, train and sample your own diffusion models on whatever data you choose. By the end of the notebook, you'll be able to read and modify the example training script to train diffusion models and share them with the world! This notebook also introduces the main exercise associated with this unit, where we will collectively attempt to figure out good 'training recipes' for diffusion models at different scales - see the next section for more info.
+在 _**Introduction to Diffusers**_ 中, 我们使用diffusers库中的构造模块显示了与上述不同的步骤。您将很快看到如何根据您选择的任何数据创建、训练和采样您自己的扩散模型。 在笔记本结束时，您将能够阅读和修改示例训练脚本，以训练扩散模型，并将其与全世界共同分享！ 本笔记本还介绍了与本单元相关的主要练习，在这里，我们将共同尝试为不同规模的扩散模型找出好的“训练脚本”-请参阅下一节了解更多信息。
 
 In _**Diffusion Models from Scratch**_ we show those same steps (adding noise to data, creating a model, training and sampling) but implemented from scratch in PyTorch as simply as possible. Then we compare this 'toy example' with the diffusers version, noting how the two differ and where improvements have been made. The goal here is to gain familiarity with the different components and the design decisions that go into them, so that when you look at a new implementation you can quickly identify the key ideas.
 
 ## 实践笔记本
 
-现在，你已经掌握了基本知识，开始训练一个或多个扩散模型吧！ _**Introduction to Diffusers**_ 笔记本的末尾有一些小tips。希望您能与社区分享您的成果、训练脚本和发现，以便我们能够一起找出训练这些模型的最佳方法。
+现在，你已经掌握了基本知识，可以开始训练你自己的扩散模型了！ _**Introduction to Diffusers**_ 笔记本的末尾有一些小tips。希望您能与社区分享您的成果、训练脚本和发现，以便我们能够一起找出训练这些模型的最佳方法。
 
 ## 一些额外的材料
  
