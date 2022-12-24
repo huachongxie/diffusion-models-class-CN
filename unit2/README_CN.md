@@ -37,8 +37,6 @@
 
 ![conditioning example](conditional_digit_generation.png)
 
-There are a number of ways to pass in this conditioning information, such as
-
 有很多种方法可以把条件信息输入到模型种，比如：
 
 * 把条件信息作为额外的通道输入给UNet。这种情况下一般条件信息都和图片有着相同的形状，比如条件信息是图像分割的掩模（mask）、深度图或模糊版的图像（针对图像修复、超分辨率任务的模型）。这种方法在一些其它条件下也可以用，比如在相应的笔记本的例子中，类别标签就被映射成了一个嵌入（embedding），并被展开成和输入图片一样的宽度和高度，以此来作为额外的通道输入到模型里。
