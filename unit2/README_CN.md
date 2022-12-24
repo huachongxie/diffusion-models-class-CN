@@ -10,7 +10,7 @@
 - 请先通读本文，对本单元的重点有一个整体的认识。
 - 学习**Fine-tuning and Guidance**这节的笔记本，试着使用🤗 Diffusers库，在一个新数据集上微调（finetune）一个已有的扩散模型，以及用引导（guidance）这一方法修改采样过程。
 - 照着记事本中的示例，把你的自定义模型做成Gradio的Demo分享出去。
-- （可选）学习_**Class-conditioned Diffusion Model Example**_这节笔记本，看看我们如何给生成过程加入额外控制。
+- （可选）学习**Class-conditioned Diffusion Model Example**这节笔记本，看看我们如何给生成过程加入额外控制。
 
 
 :loudspeaker: 别忘了加入[Discord](https://huggingface.co/join/discord)，在这里你可以参与学习资料的讨论，在`#diffusion-models-class`频道分享你的实验成果。
@@ -55,15 +55,13 @@ There are a number of ways to pass in this conditioning information, such as
 
 现在你已经准备好学习这些笔记本了！通过上面的链接使用你选择的平台打开它们！微调是个计算量很大的工作，所以如果你用的是Kaggle或Google Colab，请确保你把运行时类型设成GPU。
 
-本单元内容的主体在_**Fine-tuning and Guidance**_这个笔记本中，我们将通过示例探索这两个话题。笔记本将会展示给你如何在新数据上微调现有模型，添加引导，以及在Gradio上分享结果。这里还有一个脚本程序[finetune_model.py](https://github.com/huggingface/diffusion-models-class/blob/main/unit2/finetune_model.py)，让你更容易地实验不同的微调设置；以及一个[示例的space](https://huggingface.co/spaces/johnowhitaker/color-guided-wikiart-diffusion)，你可以以此作为目标用来在🤗 Spaces上分享demo。
+本单元内容的主体在**Fine-tuning and Guidance**这个笔记本中，我们将通过示例探索这两个话题。笔记本将会展示给你如何在新数据上微调现有模型，添加引导，以及在Gradio上分享结果。这里还有一个脚本程序[finetune_model.py](https://github.com/huggingface/diffusion-models-class/blob/main/unit2/finetune_model.py)，让你更容易地实验不同的微调设置；以及一个[示例的space](https://huggingface.co/spaces/johnowhitaker/color-guided-wikiart-diffusion)，你可以以此作为目标用来在🤗 Spaces上分享demo。
 
-在 _**Class-conditioned Diffusion Model Example**_中，我们用MNIST数据集展示一个很简单的例子：创建一个以类别标签为条件的扩散模型。这里的重点在于尽可能简单地讲解核心要点：通过给模型提供额外的关于去除什么噪声的信息，我们可以在推理时控制哪种类型的图片是我们想要生成的。
+在 **Class-conditioned Diffusion Model Example**中，我们用MNIST数据集展示一个很简单的例子：创建一个以类别标签为条件的扩散模型。这里的重点在于尽可能简单地讲解核心要点：通过给模型提供额外的关于去除什么噪声的信息，我们可以在推理时控制哪种类型的图片是我们想要生成的。
 
 ## 项目时间
 
-Following the examples in the _**Fine-tuning and Guidance**_ notebook, fine-tune your own model or pick an existing model and create a Gradio demo to showcase your new guidance skills. Don't forget to share your demo on Discord, Twitter etc so we can admire your work!
-
-仿照_**Fine-tuning and Guidance**_笔记本中的例子，微调你自己的模型或挑选一个现有模型，创建Gradio的demo展示你的引导技巧。也不要忘了在Discord或Twitter之类的平台上分享，让我们也羡慕羡慕！
+仿照**Fine-tuning and Guidance**笔记本中的例子，微调你自己的模型或挑选一个现有模型，创建Gradio的demo展示你的引导技巧。也不要忘了在Discord或Twitter之类的平台上分享，让我们也羡慕羡慕！
 
 ## 一些其它学习资源
 
