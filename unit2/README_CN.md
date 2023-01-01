@@ -39,9 +39,9 @@
 
 有很多种方法可以把条件信息输入到模型种，比如：
 
-* 把条件信息作为额外的通道输入给UNet。这种情况下一般条件信息都和图片有着相同的形状，比如条件信息是图像分割的掩模（mask）、深度图或模糊版的图像（针对图像修复、超分辨率任务的模型）。这种方法在一些其它条件下也可以用，比如在相应的笔记本的例子中，类别标签就被映射成了一个嵌入（embedding），并被展开成和输入图片一样的宽度和高度，以此来作为额外的通道输入到模型里。
-* 把条件信息做成一个嵌入（embedding），然后把它映射到和模型其中一个或多个中间层输出的通道数一样，再把这个嵌入加到中间层输出上。这一般是以时间步（timestep）为条件时的做法。比如，你可以把时间步的嵌入映射到特定通道数，然后加到模型的每一个残差网络模块的输出上。这种方法在你有一个向量形式的条件时很有用，比如CLIP的图像嵌入。一个值得注意的例子是一个[能修改输入图片的Stable Diffusion模型](https://huggingface.co/spaces/lambdalabs/stable-diffusion-image-variations)。
-* 添加有交叉注意力机制的网络层（cross-attention）。这在当条件是某种形式的文字时最有效 —— 比如文字被一个 transformer 模型映射成了一串embedding，那么UNet中有交叉注意力机制的网络层就会被用来把这些信息合并到去噪路径中。我们将在第三单元研究 Stable Diffusion 如何处理文字信息条件时看到这种情况。
+* 把条件信息作为额外的通道输入给 UNet。这种情况下一般条件信息都和图片有着相同的形状，比如条件信息是图像分割的掩模（mask）、深度图或模糊版的图像（针对图像修复、超分辨率任务的模型）。这种方法在一些其它条件下也可以用，比如在相应的笔记本的例子中，类别标签就被映射成了一个嵌入（embedding），并被展开成和输入图片一样的宽度和高度，以此来作为额外的通道输入到模型里。
+* 把条件信息做成一个嵌入（embedding），然后把它映射到和模型其中一个或多个中间层输出的通道数一样，再把这个嵌入加到中间层输出上。这一般是以时间步（timestep）为条件时的做法。比如，你可以把时间步的嵌入映射到特定通道数，然后加到模型的每一个残差网络模块的输出上。这种方法在你有一个向量形式的条件时很有用，比如 CLIP 的图像嵌入。一个值得注意的例子是一个[能修改输入图片的Stable Diffusion模型](https://huggingface.co/spaces/lambdalabs/stable-diffusion-image-variations)。
+* 添加有交叉注意力机制的网络层（cross-attention）。这在当条件是某种形式的文字时最有效 —— 比如文字被一个 transformer 模型映射成了一串 embedding，那么UNet中有交叉注意力机制的网络层就会被用来把这些信息合并到去噪路径中。我们将在第三单元研究 Stable Diffusion 如何处理文字信息条件时看到这种情况。
 
 
 ## 用来上手的笔记本示例
@@ -53,13 +53,13 @@
 
 现在你已经准备好学习这些笔记本了！通过上面的链接使用你选择的平台打开它们！微调是个计算量很大的工作，所以如果你用的是 Kaggle或 Google Colab，请确保你把运行时类型设成 GPU。
 
-本单元内容的主体在 **Fine-tuning and Guidance** 这个笔记本中，我们将通过示例探索这两个话题。笔记本将会展示给你如何在新数据上微调现有模型，添加引导，以及在 Gradio 上分享结果。这里还有一个脚本程序 [finetune_model.py](https://github.com/huggingface/diffusion-models-class/blob/main/unit2/finetune_model.py)，让你更容易地实验不同的微调设置；以及一个[示例的 space](https://huggingface.co/spaces/johnowhitaker/color-guided-wikiart-diffusion)，你可以以此作为目标用来在🤗 Spaces上分享demo。
+本单元内容的主体在 **Fine-tuning and Guidance** 这个笔记本中，我们将通过示例探索这两个话题。笔记本将会展示给你如何在新数据上微调现有模型，添加引导，以及在 Gradio 上分享结果。这里还有一个脚本程序 [finetune_model.py](https://github.com/huggingface/diffusion-models-class/blob/main/unit2/finetune_model.py)，让你更容易地实验不同的微调设置；以及一个[示例的 space](https://huggingface.co/spaces/johnowhitaker/color-guided-wikiart-diffusion)，你可以以此作为目标用来在 🤗 Spaces 上分享 demo。
 
-在 **Class-conditioned Diffusion Model Example**中，我们用MNIST数据集展示一个很简单的例子：创建一个以类别标签为条件的扩散模型。这里的重点在于尽可能简单地讲解核心要点：通过给模型提供额外的关于去除什么噪声的信息，我们可以在推理时控制哪种类型的图片是我们想要生成的。
+在 **Class-conditioned Diffusion Model Example** 中，我们用 MNIST 数据集展示一个很简单的例子：创建一个以类别标签为条件的扩散模型。这里的重点在于尽可能简单地讲解核心要点：通过给模型提供额外的关于去除什么噪声的信息，我们可以在推理时控制哪种类型的图片是我们想要生成的。
 
 ## 项目时间
 
-仿照**Fine-tuning and Guidance**笔记本中的例子，微调你自己的模型或挑选一个现有模型，创建Gradio的demo展示你的引导技巧。也不要忘了在Discord或Twitter之类的平台上分享，让我们也羡慕羡慕！
+仿照 **Fine-tuning and Guidance** 笔记本中的例子，微调你自己的模型或挑选一个现有模型，创建 Gradio 的 demo 展示你的引导技巧。也不要忘了在 Discord 或 Twitter 之类的平台上分享，让我们也羡慕羡慕！
 
 ## 一些其它学习资源
 
