@@ -23,7 +23,7 @@ Register via the **[signup form](https://huggingface.us17.list-manage.com/subscr
 | November 28, 2022  | [An Introduction to Diffusion Models](https://github.com/huggingface/diffusion-models-class/tree/main/unit1)| Introduction to Diffusers and Diffusion Models From Scratch |
 | December 12, 2022  | [Fine-Tuning and Guidance](https://github.com/huggingface/diffusion-models-class/tree/main/unit2) | Fine-Tuning a Diffusion Model on New Data and Adding Guidance |
 | December 21, 2022  | [Stable Diffusion](https://github.com/huggingface/diffusion-models-class/tree/main/unit3) | Exploring a Powerful Text-Conditioned Latent Diffusion Model |
-| January 2023 (TBC)  | Doing More with Diffusion | Advanced Techniques to Take Diffusion Further |
+| January 2023 (TBC)  | [Doing More with Diffusion](https://github.com/huggingface/diffusion-models-class/tree/main/unit4) | Advanced Techniques to Take Diffusion Further |
 
 More information coming soon!
 
@@ -62,5 +62,5 @@ Members of the 🤗 community have begin translating the course! We're planning 
 
 | Language                                                                      | Authors |
 |:------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|
-| [Chinese](https://github.com/darcula1993/diffusion-models-class-CN/blob/main/README_CN.md)     | [@darcula1993](https://github.com/darcula1993) [@XhrLeokk](https://github.com/XhrLeokk)|
+| [Chinese](https://github.com/darcula1993/diffusion-models-class-CN/blob/main/README_CN.md)     | [@darcula1993](https://github.com/darcula1993) [@XhrLeokk](https://github.com/XhrLeokk) [@SuSung-boy](https://github.com/SuSung-boy) [@Hoi2022](https://github.com/Hoi2022)|
 | [Japanese](https://github.com/eltociear/diffusion-models-class-JA/blob/main/README_JA.md)     | [@eltociear](https://github.com/eltociear)|
