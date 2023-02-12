@@ -34,38 +34,39 @@
 
 ![image](https://user-images.githubusercontent.com/6575163/211016659-7dac24a5-37e2-45f9-aba8-0c573937e7fb.png)
 
-_渐进蒸馏图示 (from the [paper](http://arxiv.org/abs/2202.00512))_
+_渐进蒸馏图示 (来源于[该篇论文](http://arxiv.org/abs/2202.00512))_
 
-The idea of using an existing model to 'teach' a new model can be extended to create guided models where the classifier-free guidance technique is used by the teacher model and the student model must learn to produce an equivalent output in a single step based on an additional input specifying the targeted guidance scale. This further reduces the number of model evaluations required to produce high-quality samples. [This video](https://www.youtube.com/watch?v=ZXuK6IRJlnk) gives an overview of the approach.
+使用现有模型“教授”新模型的想法可以扩展到创建指导模型，其中教师模型使用无分类器指导技术，学生模型必须学会在指定目标指导尺度的额外输入的基础上，在单个步骤中产生等价的输出。[这个视频](https://www.youtube.com/watch?v=ZXuK6IRJlnk) 对该方法做了一个概述。
 
-NB: A distilled version of Stable Diffusion is due to be released fairly soon.
+NB: Stable Diffusion的蒸馏版将很快发布。
 
-Key references:
+主要文献:
 - [Progressive Distillation For Fast Sampling Of Diffusion Models](http://arxiv.org/abs/2202.00512)
 - [On Distillation Of Guided Diffusion Models](http://arxiv.org/abs/2210.03142)
 
-## Training Improvements
+## 训练改进
 
-There have been several additional tricks developed to improve diffusion model training. In this section we've tried to capture the core ideas from recent papers. There is a constant stream of research coming out with additional improvements, so if you see a paper you feel should be added here please let us know!
+学界现在已经开发了一些额外的技巧来改进扩散模型的训练过程。在本节中，我们试图从最近的论文中寻找一些相关的核心理念。更多关于改进方法的研究论文也是不断涌现，因此，如果你看到一篇你觉得应该添加在这里的论文，请联系我们!
 
 ![image](https://user-images.githubusercontent.com/6575163/211021220-e87ca296-cf15-4262-9359-7aeffeecbaae.png)
-_Figure 2 from the [ERNIE-ViLG 2.0 paper](http://arxiv.org/abs/2210.15257)_
+_图像2来自于 [ERNIE-ViLG 2.0 paper](http://arxiv.org/abs/2210.15257)_
 
-Key training improvements:
-- Tuning the noise schedule, loss weighting and sampling trajectories for more efficient training. An excellent paper exploring some of these design choices is [Elucidating the Design Space of Diffusion-Based Generative Models](http://arxiv.org/abs/2206.00364) by Karras et al.
-- Training on diverse aspect ratios, as described in [this video from the course launch event](https://www.youtube.com/watch?v=g6tIUrMvOec).
-- Cascaded diffusion models, training one model at low resolution and then one or more super-res models. Used in DALLE-2, Imagen and more for high-resolution image generation.
+关键的训练改进:
+- 调整噪声计划、损失加权和采样轨迹，以获得更有效的训练。这里是一篇探讨这些设计选择的优秀论文 [Elucidating the Design Space of Diffusion-Based Generative Models](http://arxiv.org/abs/2206.00364) by Karras et al.
+- 在不同的长宽比上进行训练。这一方法被描述在[课程启动活动提到的这个视频中](https://www.youtube.com/watch?v=g6tIUrMvOec)
+- 级联扩散模型，首先训练一个低分辨率模型，然后训练一个或多个超分辨率模型。这一方法被广泛运用于DALLE-2，Imagen等高分辨率图像生成模型中。
 - Better conditioning, incorporating rich text embeddings ([Imagen](https://arxiv.org/abs/2205.11487) uses a large language model called T5) or multiple types of conditioning ([eDiffi](http://arxiv.org/abs/2211.01324))
-- 'Knowledge Enhancement' - incorporating pre-trained image captioning and object detection models into the training process to create more informative captions and produce better performance ([ERNIE-ViLG 2.0](http://arxiv.org/abs/2210.15257))
-- 'Mixture of Denoising Experts' (MoDE) - training different variants of the model ('experts') for different noise levels as illustrated in the image above from the [ERNIE-ViLG 2.0 paper](http://arxiv.org/abs/2210.15257).
+- 更好的调节、结合富文本嵌入 ([Imagen](https://arxiv.org/abs/2205.11487) 使用了一个名为T-5的大语言模型) 或进行多种类型的调节 ([eDiffi](http://arxiv.org/abs/2211.01324))
+- “知识增强” - 将预先训练的图像描述和物体检测模型纳入训练过程，以创建更有信息的描述，并产生更好的表现 ([ERNIE-ViLG 2.0](http://arxiv.org/abs/2210.15257))
+- “复合降噪专家” (MoDE) - 训练模型的不同变体(“专家”)以适应不同的噪声水平，如上图所示 [ERNIE-ViLG 2.0 paper](http://arxiv.org/abs/2210.15257).
 
-Key references:
+主要文献:
 - [Elucidating the Design Space of Diffusion-Based Generative Models](http://arxiv.org/abs/2206.00364)
 - [eDiffi: Text-to-Image Diffusion Models with an Ensemble of Expert Denoisers](http://arxiv.org/abs/2211.01324)
 - [ERNIE-ViLG 2.0: Improving Text-to-Image Diffusion Model with Knowledge-Enhanced Mixture-of-Denoising-Experts](http://arxiv.org/abs/2210.15257)
 - [Imagen - Photorealistic Text-to-Image Diffusion Models with Deep Language Understanding](https://arxiv.org/abs/2205.11487) ([demo site](https://imagen.research.google/))
 
-## More Control for Generation and Editing
+## 对生成与编辑的更多控制
 
 In addition to training improvements, there have been several innovations in the sampling and inference phase, including many approaches that can add new capabilities to existing diffusion models.
 
