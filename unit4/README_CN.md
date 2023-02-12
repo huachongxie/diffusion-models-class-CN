@@ -83,16 +83,18 @@ _由'paint-with-words'生成的样本 ([eDiffi](http://arxiv.org/abs/2211.01324)
 - [Blended Diffusion](https://omriavrahami.com/blended-diffusion-page/) 介绍了基础的理念
 - [这个 demo](https://huggingface.co/spaces/nielsr/text-based-inpainting) 使用现有的分割模型(CLIPSeg)来创建基于文本描述的掩码
 - [DiffEdit](https://arxiv.org/abs/2210.11427) 是一篇展示了如何使用扩散模型本身来生成适当的掩码，以根据文本编辑图像的优秀论文。
-- [SmartBrush: Text and Shape Guided Object Inpainting with Diffusion Model](https://arxiv.org/abs/2212.05034) fine-tunes a diffusion model for more accurate mask-guided inpainting.
-3) Cross-attention Control: using the cross-attention mechanism in diffusion models to control the spatial location of edits for more fine-grained control.
-- [Prompt-to-Prompt Image Editing with Cross Attention Control](https://arxiv.org/abs/2208.01626) is the key paper that introduced this idea, and the technique has [since been applied to Stable Diffusion](https://wandb.ai/wandb/cross-attention-control/reports/Improving-Generative-Images-with-Instructions-Prompt-to-Prompt-Image-Editing-with-Cross-Attention-Control--VmlldzoyNjk2MDAy)
-- This idea is also used for 'paint-with-words' ([eDiffi](http://arxiv.org/abs/2211.01324), shown above)
-4) Fine-tune ('overfit') on a single image and then generate with the fine-tuned model. The following papers both published variants of this idea at roughly the same time:
+- [SmartBrush: Text and Shape Guided Object Inpainting with Diffusion Model](https://arxiv.org/abs/2212.05034) 微调扩散模型以获得更准确的掩模引导图像修补。
+
+3) 交叉注意力控制:利用扩散模型中的交叉注意力机制控制编辑的空间位置，实现更细粒度的控制。
+- [Prompt-to-Prompt Image Editing with Cross Attention Control](https://arxiv.org/abs/2208.01626) 是介绍这一想法的关键论文，并且该技术[已经应用于Stable Diffusion](https://wandb.ai/wandb/cross-attention-control/reports/Improving-Generative-Images-with-Instructions-Prompt-to-Prompt-Image-Editing-with-Cross-Attention-Control--VmlldzoyNjk2MDAy)
+- 这个想法也被用于 'paint-with-words'中 ([eDiffi](http://arxiv.org/abs/2211.01324))
+
+4) 对单个图像进行微调(“过拟合”)，然后使用微调模型进行图像生成。以下论文几乎在同一时间发表了非常类似的想法:
 - [Imagic: Text-Based Real Image Editing with Diffusion Models](https://arxiv.org/abs/2210.09276)
 - [UniTune: Text-Driven Image Editing by Fine Tuning an Image Generation Model on a Single Image
 ](https://arxiv.org/abs/2210.09477)
 
-The paper [InstructPix2Pix: Learning to Follow Image Editing Instructions](https://arxiv.org/abs/2211.09800) is notable in that it used some of the image editing techniques described above to build a synthetic dataset of image pairs alongside image edit instructions (generated with GPT3.5) to train a new model capable of editing images based on natural language instructions
+值得注意的是，这篇论文 [InstructPix2Pix: Learning to Follow Image Editing Instructions](https://arxiv.org/abs/2211.09800) 使用了上面描述的一些图像编辑技术来构建一个图像对的合成数据集以及图像编辑指令(由GPT3.5生成)，训练生成了一个能够基于自然语言指令编辑图像的新模型。
 
 
 ## 视频
@@ -112,17 +114,17 @@ _Still frames from [样本视频通过Imagen Video生成](https://imagen.researc
 
 _用Riffusion生成的一幅光谱图 ([图片来源](https://www.riffusion.com/about))_
 
-While there has been some work on generating audio directly using diffusion models (e.g. [DiffWave](https://arxiv.org/abs/2009.09761)) the most successful approach so far has been to convert the audio signal into something called a spectrogram, which effectively 'encodes' the audio as a 2D "image" which can then be used to train the kinds of diffusion models we're used to using for image generation. The resulting generated spectrograms can then be converted into audio using existing methods. This approach is behind the recently-released Riffusion, which fine-tuned Stable Diffusion to generate spectrograms conditioned on text - [try it out here](https://www.riffusion.com/).
+虽然已经有一些直接使用扩散模型生成音频的工作(e.g. [DiffWave](https://arxiv.org/abs/2009.09761))，但迄今为止最成功的方法还是将音频信号转换为一种称为频谱图的东西，这种方法有效地将音频“编码”为2D“图像”，然后可以用于训练我们用来做图像生成的扩散模型。之后就可以使用现有方法将生成的频谱图转换为音频。最近发布的Riffusion模型就是基于这样的设计思路。该模型通过微调Stable Diffusion模型来基于文字生成频谱图 - [点击这里进行尝试](https://www.riffusion.com/)。
 
-The field of audio generation is moving extremely quickly. Over the past week (at the time of writing) there have been at least 5 new advances announced, which are marked with a star in the list below:
+音频生成领域发展非常迅速。至少有5个新的进展在过去的一周(在撰写本文时)被发布了。在下面的列表中，我们用星号将他们标了出来：
 
 主要文献:
 - [DiffWave: A Versatile Diffusion Model for Audio Synthesis](https://arxiv.org/abs/2009.09761)
 - ['Riffusion'](https://www.riffusion.com/about) (and [code](https://github.com/riffusion/riffusion))
-- *[MusicLM](https://google-research.github.io/seanet/musiclm/examples/) by Google generates consistent audio from text and can be conditioned with hummed or whistled melodies
-- *[RAVE2](https://github.com/acids-ircam/RAVE) - a new version of a Variational Auto-Encoder that will be useful for latent diffusion on audio tasks. This is used in the soon-to-be-announced *[AudioLDM](https://twitter.com/LiuHaohe/status/1619119637660327936?s=20&t=jMkPWBFuAH19HI9m5Sklmg) model
-- *[Noise2Music](https://noise2music.github.io/) - A diffusion model trained to produce high-quality 30-second clips of audio based on text descriptions
-- *[Make-An-Audio: Text-To-Audio Generation with Prompt-Enhanced Diffusion Models](https://text-to-audio.github.io/) - a diffusion model trained to generate diverse sounds based on text
+- *[MusicLM](https://google-research.github.io/seanet/musiclm/examples/) 通过谷歌从文本生成一致的音频，并可以调节哼唱或吹口哨的旋律
+- *[RAVE2](https://github.com/acids-ircam/RAVE) - 一个新版本的变分自动编码器，可以被用在latent diffusion音频任务上。 这个新结构将被用在下面这篇即将发布的模型中 *[AudioLDM](https://twitter.com/LiuHaohe/status/1619119637660327936?s=20&t=jMkPWBFuAH19HI9m5Sklmg) 
+- *[Noise2Music](https://noise2music.github.io/) - 该扩散模型可以基于文本描述来生成一段高质量的30秒音频片段
+- *[Make-An-Audio: Text-To-Audio Generation with Prompt-Enhanced Diffusion Models](https://text-to-audio.github.io/) - 该扩散模型可以基于文本描述来生成不同的声音
 - *[Moûsai: Text-to-Music Generation with Long-Context Latent Diffusion](https://arxiv.org/abs/2301.11757)
 
 ## 新的体系结构和方法 - 走向“迭代优化”
