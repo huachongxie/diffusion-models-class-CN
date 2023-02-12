@@ -46,7 +46,7 @@ NB: Stable Diffusion的蒸馏版将很快发布。
 
 ## 训练改进
 
-学界现在已经开发了一些额外的技巧来改进扩散模型的训练过程。在本节中，我们试图从最近的论文中寻找一些相关的核心理念。更多关于改进方法的研究论文也是不断涌现，因此，如果你看到一篇你觉得应该添加在这里的论文，请联系我们!
+研究者们现在已经开发了一些额外的技巧来改进扩散模型的训练过程。在本节中，我们试图从最近的论文中寻找一些相关的核心理念。更多关于改进方法的研究论文也是不断涌现，因此，如果你看到一篇你觉得应该添加在这里的论文，请联系我们!
 
 ![image](https://user-images.githubusercontent.com/6575163/211021220-e87ca296-cf15-4262-9359-7aeffeecbaae.png)
 _图像2来自于 [ERNIE-ViLG 2.0 paper](http://arxiv.org/abs/2210.15257)_
@@ -77,11 +77,12 @@ _由'paint-with-words'生成的样本 ([eDiffi](http://arxiv.org/abs/2211.01324)
 1) 添加噪声，然后用一个新的提示（prompt）来进行去噪. 这就是 'img2img ' 管道背后的思想，已经在各种论文中得到了扩展:
 - [SDEdit](https://sde-image-editing.github.io/) and [MagicMix](https://magicmix.github.io/) 这两篇论文都是建立在这一理念的基础上的
 - DDIM 反演 (TODO link tutorial)使用模型来“反转”采样轨迹来取代添加随机噪声, 从而提供了更多的控制
-- [Null-text Inversion](https://null-text-inversion.github.io/) enhances the performance of this kind of approach dramatically by optimizing the unconditional text embeddings used for classifier-free guidance at each step, allowing for extremely high-quality text-based image editing.
-2) Extending the ideas in (1) but with a mask to control where the effect is applied
-- [Blended Diffusion](https://omriavrahami.com/blended-diffusion-page/) introduces the basic idea
-- [This demo](https://huggingface.co/spaces/nielsr/text-based-inpainting) uses an existing segmentation model (CLIPSeg) to create the mask based on a text description
-- [DiffEdit](https://arxiv.org/abs/2210.11427) is an excellent paper that shows how the diffusion model itself can be used to generate an appropriate mask for editing the image based on text.
+- [Null-text Inversion](https://null-text-inversion.github.io/) 通过在每一步中优化用于无分类器引导的无条件文本嵌入，允许极高质量的基于文本的图像编辑，极大地增强了这种方法的性能。
+
+2) 扩展了(1)中的思想，但使用蒙版来控制效果的应用位置
+- [Blended Diffusion](https://omriavrahami.com/blended-diffusion-page/) 介绍了基础的理念
+- [这个 demo](https://huggingface.co/spaces/nielsr/text-based-inpainting) 使用现有的分割模型(CLIPSeg)来创建基于文本描述的掩码
+- [DiffEdit](https://arxiv.org/abs/2210.11427) 是一篇展示了如何使用扩散模型本身来生成适当的掩码，以根据文本编辑图像的优秀论文。
 - [SmartBrush: Text and Shape Guided Object Inpainting with Diffusion Model](https://arxiv.org/abs/2212.05034) fine-tunes a diffusion model for more accurate mask-guided inpainting.
 3) Cross-attention Control: using the cross-attention mechanism in diffusion models to control the spatial location of edits for more fine-grained control.
 - [Prompt-to-Prompt Image Editing with Cross Attention Control](https://arxiv.org/abs/2208.01626) is the key paper that introduced this idea, and the technique has [since been applied to Stable Diffusion](https://wandb.ai/wandb/cross-attention-control/reports/Improving-Generative-Images-with-Instructions-Prompt-to-Prompt-Image-Editing-with-Cross-Attention-Control--VmlldzoyNjk2MDAy)
