@@ -2,7 +2,7 @@
 
 欢迎来到 Hugging Face 扩散模型课程的第四单元！在这个单元中，我们将探讨最新研究中出现的扩散模型的许多改进和扩展。它将比以往的单元代码更少，旨在为您提供进一步研究的起点。
 
-## 开始这一单元 :rocket:
+## 开始本单元 :rocket:
 
 以下是本单元的学习步骤：
 
@@ -15,28 +15,26 @@
 
 ## Table of Contents
 
-- [Unit 4: Going Further with Diffusion Models](#unit-4-going-further-with-diffusion-models)
-  - [Start this Unit :rocket:](#start-this-unit-rocket)
-  - [Table of Contents](#table-of-contents)
-  - [Faster Sampling via Distillation](#faster-sampling-via-distillation)
-  - [Training Improvements](#training-improvements)
-  - [More Control for Generation and Editing](#more-control-for-generation-and-editing)
-  - [Video](#video)
-  - [Audio](#audio)
-  - [New Architectures and Approaches - Towards 'Iterative Refinement'](#new-architectures-and-approaches---towards-iterative-refinement)
-  - [Hands-On Notebooks](#hands-on-notebooks)
-  - [Where Next?](#where-next)
+- [Unit 4: 深入研究扩散模型](#unit-4-going-further-with-diffusion-models)
+  - [开始本单元 :rocket:](#start-this-unit-rocket)
+  - [课程目录](#table-of-contents)
+  - [通过蒸馏进行快速采样](#faster-sampling-via-distillation)
+  - [训练改进](#training-improvements)
+  - [对生成与编辑的更多控制](#more-control-for-generation-and-editing)
+  - [视频](#video)
+  - [音频](#audio)
+  - [新的体系结构和方法 - 走向“迭代优化”](#new-architectures-and-approaches---towards-iterative-refinement)
+  - [动手笔记本](#hands-on-notebooks)
+  - [下一步？](#where-next)
 
 
-## Faster Sampling via Distillation
+## 通过蒸馏进行快速采样
 
-Progressive distillation is a technique for taking an existing diffusion model and using it to train a new version of the model that requires fewer steps for inference. The 'student' model is initialized from the weights of the 'teacher' model. During training, the teacher model performs two sampling steps and the student model tries to match the resulting prediction in a single step. This process can be repeated multiple times, with the previous iteration's student model becoming the teacher for the next stage. The result is a model that can produce decent samples in much fewer steps (typically 4 or 8) than the original teacher model. The core mechanism is illustrated in this diagram from the [paper that introduced the idea](http://arxiv.org/abs/2202.00512):
-
-进步精馏是一种用于在现有扩散模型的基础上训练一个新版本的模型的技术，该模型需要更少的推理步骤。“学生”模型的权重初始化来自“教师”模型。在训练中，教师模型执行两个采样步骤，学生模型试图在单步内与最终的预测相匹配。这个过程可以重复多次，上一次迭代的学生模型成为下一阶段的教师。结果是一个模型，可以在比原始教师模型更少的步骤（通常为4或8步）中生成适当的样本。核心机制在这张图中得以说明，图来自[引入该想法的论文]
+渐进蒸馏是一种采用现有扩散模型并使用它来训练需要更少推理步骤的模型的新版本的技术。“学生”模型初始化自“教师”模型的权重。在训练过程中，教师模型执行两个采样步骤，学生模型尝试在一个步骤中匹配结果预测。这个过程可以重复多次，上一次迭代的学生模型成为下一阶段的教师模型。结果是，这个模型可以用比原来的教师模型少得多的步骤(通常是4或8步)生成较好的样本。核心机制如下图所示，图片来源于[这篇论文](http://arxiv.org/abs/2202.00512):
 
 ![image](https://user-images.githubusercontent.com/6575163/211016659-7dac24a5-37e2-45f9-aba8-0c573937e7fb.png)
 
-_Progressive Distillation illustrated (from the [paper](http://arxiv.org/abs/2202.00512))_
+_渐进蒸馏图示 (from the [paper](http://arxiv.org/abs/2202.00512))_
 
 The idea of using an existing model to 'teach' a new model can be extended to create guided models where the classifier-free guidance technique is used by the teacher model and the student model must learn to produce an equivalent output in a single step based on an additional input specifying the targeted guidance scale. This further reduces the number of model evaluations required to produce high-quality samples. [This video](https://www.youtube.com/watch?v=ZXuK6IRJlnk) gives an overview of the approach.
 
