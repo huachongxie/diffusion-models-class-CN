@@ -16,9 +16,9 @@
 | 📆 Publishing date  | 📘 Unit           | 👩‍💻 Hands-on |
 |---------------|----------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
 | November 28, 2022  | [扩散模型简介](https://github.com/huggingface/diffusion-models-class/tree/main/unit1)| 从头开始介绍扩散器和扩散模型 |
-| 待定  | 微调和指导 | 根据新数据微调扩散模型并添加指导 |
-| 待定  | Stable Diffusion 介绍 | 探索一个强大的文本条件的隐式扩散模型(Latent Diffusion Model) |
-| 待定  | 深入挖掘 Stable Diffusion| 微调、采样技巧和自定义管道 |
+| December 12, 2022  | 微调和指导 | 根据新数据微调扩散模型并添加指导 |
+| December 21, 2022  | Stable Diffusion 介绍 | 探索一个强大的文本条件的隐式扩散模型(Latent Diffusion Model) |
+| January 2023 (TBC)  | 深入挖掘 Stable Diffusion| 微调、采样技巧和自定义管道 |
 
 更多的信息即将到来!
 

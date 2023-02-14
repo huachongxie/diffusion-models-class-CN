@@ -1,6 +1,6 @@
 # 单元 1: 扩散模型简介
 
-欢迎来到 Hugging Face 扩散模型课程第一单元！在本单元中，你将学习有关扩散模型如何工作的基础知识，以及如何使用 🤗 diffusers 库。
+欢迎来到 Hugging Face 扩散模型课程第一单元！在本单元中，你将学习到有关扩散模型如何运作的基础知识，同时也会学到如何使用 🤗 diffusers 库。
 
 ## 开始本单元 :rocket:
 
@@ -8,9 +8,9 @@
 
 - 请确保你已经 [注册了该课程](https://huggingface.us17.list-manage.com/subscribe?u=7f57e683fa28b51bfc493d048&id=ef963b4162)。这样当有新课程材料发布的时候你就会收到通知
 - 通读下面的介绍材料以及任何你感兴趣的其他资源
-- 查看下面的 _**Diffusers 介绍**_ Notebook 链接，以使用 `diffuers` 库将理论应用到实践中
+- 查看下面的 _**Introduction to Diffusers**_ Notebook 链接，以使用 `diffuers` 库将理论应用到实践中
 - 使用 Notebook 或链接的训练脚本来训练和分享你自己的扩散模型
-- (可选) 如果你有兴趣看到一个极简的从头开始的项目实现，并探索所涉及的不同设计决策，你可以深入研究 _**扩散模型从零到一**_ 这个 Notebook
+- (可选) 如果你有兴趣看到一个极简的从头开始的项目实现，并探索所涉及的不同设计决策，你可以深入研究 _**Diffusion Models from Scratch**_ 这个 Notebook
 
 
 :loudspeaker: 请不要忘了加入我们的频道 [Discord](https://huggingface.co/join/discord), 你可以在 `#diffusion-models-class` 频道来讨论课程内容以及分享你的作品。
@@ -25,7 +25,7 @@
     <em> 图片来源于 DDPM paper (https://arxiv.org/abs/2006.11239)。</em>
 <p>
 
-扩散模型成功的秘诀在于扩散过程的迭代本质。最先生成的只是一组随机噪声，但经过若干步骤逐渐改善，有意义的图像将最终会出现。在每一步中，模型都会估计如何从当前的输入生成完全去噪的结果。因为我们在每一步都只做了一个小小的变动，所以在早期阶段（预测最终输出实际上非常困难），这个估计中的任何 error 都可以在以后的更新中得到纠正。
+扩散模型成功的秘诀在于扩散过程的迭代本质。最先生成的只是一组随机噪声，但是经过若干步的逐渐改善之后，最终会出现有意义的图像。在每一步中，模型都会估计如何从当前的输入生成完全去噪的结果。因为我们在每一步都只做了一个小小的变动，所以在早期阶段（预测最终输出实际上非常困难），这个估计中的任何 error 都可以在以后的更新中得到纠正。
 
 与其他类型的生成模型相比，训练扩散模型相对较为容易。我们只需要重复以下步骤即可：
 
@@ -47,13 +47,13 @@
 | Introduction to Diffusers                                | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/darcula1993/diffusion-models-class-CN/blob/main/unit1/01_introduction_to_diffusers_CN.ipynb)              | [![Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://github.com/huggingface/diffusion-models-class/blob/main/unit1/01_introduction_to_diffusers_CN.ipynb)              | [![Gradient](https://assets.paperspace.io/img/gradient-badge.svg)](https://console.paperspace.com/github/darcula1993/diffusion-models-class-CN/blob/main/unit1/01_introduction_to_diffusers_CN.ipynb)              | [![Open In SageMaker Studio Lab](https://studiolab.sagemaker.aws/studiolab.svg)](https://studiolab.sagemaker.aws/import/github/darcula1993/diffusion-models-class-CN/blob/main/unit1/01_introduction_to_diffusers_CN.ipynb)              |
 | Diffusion Models from Scratch                                | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/darcula1993/diffusion-models-class-CN/blob/main/unit1/02_diffusion_models_from_scratch_CN.ipynb)              | [![Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://github.com/huggingface/diffusion-models-class/blob/main/unit1/02_diffusion_models_from_scratch_CN.ipynb)              | [![Gradient](https://assets.paperspace.io/img/gradient-badge.svg)](https://console.paperspace.com/github/darcula1993/diffusion-models-class-CN/blob/main/unit1/02_diffusion_models_from_scratch_CN.ipynb)              | [![Open In SageMaker Studio Lab](https://studiolab.sagemaker.aws/studiolab.svg)](https://studiolab.sagemaker.aws/import/github/darcula1993/diffusion-models-class-CN/blob/main/unit1/02_diffusion_models_from_scratch_CN.ipynb)              |
 
-在 _**Diffusers 介绍**_ 这个 Notebook 中，我们使用 diffusers 库中的构造模块显示了与上述不同的步骤。你将很快看到如何根据你选择的任何数据创建、训练和采样你自己的扩散模型。 在笔记本结束时，你将能够阅读和修改示例训练脚本，以训练扩散模型，并将其与全世界共同分享！ 本笔记本还介绍了与本单元相关的主要练习，在这里，我们将共同尝试为不同规模的扩散模型找出好的「训练脚本」- 请参阅下一节了解更多信息。
+在 _**Introduction to Diffusers**_ 这个 Notebook 中，我们使用 diffusers 库中的构造模块显示了与上述不同的步骤。你将很快看到如何根据你选择的任何数据创建、训练和采样你自己的扩散模型。 在笔记本结束时，你将能够阅读和修改示例训练脚本，以训练扩散模型，并将其与全世界共同分享！ 本笔记本还介绍了与本单元相关的主要练习，在这里，我们将共同尝试为不同规模的扩散模型找出好的「训练脚本」- 请参阅下一节了解更多信息。
 
-在 _**扩散模型从零到一**_ 这个 Notebook 中，我们展示了相同的步骤（向数据添加噪声、创建模型、训练和采样），并尽可能简单地在 PyTorch 中从头开始实现。然后，我们将这个「玩具示例」与 `diffusers` 版本进行比较，并关注两者的区别以及改进之处。这里的目标是熟悉不同的组件和其中的设计决策，以便在查看新的实现时能够快速确定关键思想。
+在 _**Diffusion Models from Scratch**_ 这个 Notebook 中，我们展示了相同的步骤（向数据添加噪声、创建模型、训练和采样），并尽可能简单地在 PyTorch 中从头开始实现。然后，我们将这个「玩具示例」与 `diffusers` 版本进行比较，并关注两者的区别以及改进之处。这里的目标是熟悉不同的组件和其中的设计决策，以便在查看新的实现时能够快速确定关键思想。
 
 ## 项目时间
 
-现在，你已经掌握了基本知识，可以开始训练你自己的扩散模型了！ _**Diffusers 介绍s**_ 这个 Notebook 的末尾有一些小提示，希望你能与社区分享你的成果、训练脚本和发现，以便我们能够一起找出训练这些模型的最佳方法。
+现在，你已经掌握了基本知识，可以开始训练你自己的扩散模型了！ _**Introduction to Diffusers**_ 这个 Notebook 的末尾有一些小提示，希望你能与社区分享你的成果、训练脚本和发现，以便我们能够一起找出训练这些模型的最佳方法。
 
 ## 一些额外的材料
 
